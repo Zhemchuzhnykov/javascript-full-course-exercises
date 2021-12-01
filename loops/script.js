@@ -70,3 +70,11 @@ if (sum * 5 > 5000) {
 } else {
   console.log("Smaller or equal");
 }
+
+// exercise 7
+
+let sum = 0;
+for (let i = 1; i <= 10000000; i++) {
+  sum += i;
+}
+console.log(sum);
