@@ -38,3 +38,20 @@ for (let i = 1; i <= n; i++) {
   sum += i;
 }
 console.log(sum);
+
+// exercise 5
+
+const start = 1;
+const end = 19;
+let result = 0;
+for (let i = 1; i <= end; i++) {
+  if (i % 5 === 0) {
+    console.log(i);
+  } else if (i % 2 === 0 && i % 4 !== 0) {
+    result += i;
+  } else if (i % 3 === 0) {
+    result -= i;
+  } else if (i % 4 === 0) {
+    result *= i;
+  } else {}
+}
