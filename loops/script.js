@@ -14,3 +14,12 @@ for (let i = 1; i <= 19; i++) {
   }
 }
 console.log(result);
+
+for (let i = 1; i <= 5; i++) {
+  let result = 0;
+  console.log("\n=> " + i + " <=\n\n");
+  for (let n = 1; n < 10; n++) {
+    result = i * n;
+    console.log(i + " x " + n + " = " + result);
+  }
+}
