@@ -12,3 +12,7 @@ function getEvenOdd(num) {
   }
   return "odd";
 }
+
+function square(num) {
+  return num ** 2;
+}
