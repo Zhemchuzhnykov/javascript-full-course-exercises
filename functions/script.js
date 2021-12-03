@@ -41,3 +41,22 @@ function increaser(a, index) {
   if (a > index) a += index;
   return a;
 }
+
+// exercise 7
+
+function sum(from, to) {
+  let result = 0;
+  for (let i = from; i <= to; i++) {
+    result += i;
+  }
+  return result;
+}
+
+function compareSums(a, b, c, d) {
+  const sum1 = sum(a, b);
+  const sum2 = sum(c, d);
+  return sum1 > sum2;
+}
+
+// exercise 8
+
