@@ -67,3 +67,17 @@ function findDivCount(a, b, n) {
   }
   return count;
 }
+
+// // exercise 9
+
+function getPrimes(num) {
+  for (let i = 2; i <= num; i++) {
+    for (let n = 2; n <= i; n++) {
+      if (i !== 2 && i % n === 0) {
+        break;
+      } else if (i === 2 || n === i - 1) {
+        console.log(i);
+      }
+    }
+  }
+}
