@@ -29,3 +29,23 @@ function getSpecialNumbers(from, to) {
   }
   return result;
 }
+
+// function 4
+
+function swap(numbers) {
+  const [first, ...rest] = numbers;
+  const result = [...rest, first];
+  return result;
+}
+
+// function 5
+
+function swapManual(numbers) {
+  const first = numbers[0];
+  let result = [];
+  for (let i = 1; i < numbers.length; i++) {
+    result[i - 1] = numbers[i];
+  }
+  result.push(first);
+  return result;
+}
