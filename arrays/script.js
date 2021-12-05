@@ -6,3 +6,16 @@ function getArrayBounds(arr) {
   } 
     return [arr.length, arr[0], arr[arr.length - 1]];
 }
+
+//function 2
+
+function getSum(arr) {
+  let result = 0;
+  if (!Array.isArray(arr)) {
+    return null;
+  }
+  for (let i of arr) {
+    result += i;
+  }
+  return result; 
+}
