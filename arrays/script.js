@@ -57,3 +57,16 @@ function createEmptyArray(len) {
   result.length = len;
   return result;
 }
+
+// function 7
+
+function squareArray(arr) {
+  let result = [];
+  if (!Array.isArray(arr)) {
+    return null;
+  }
+  for (let i of arr) {
+    result.push(i ** 2);
+  }
+  return result;
+}
