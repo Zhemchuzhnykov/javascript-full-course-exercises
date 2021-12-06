@@ -83,3 +83,18 @@ function checkSum(arr) {
   }
   return sum > 100;
 }
+
+// function  9
+
+function increaseEvenEl(arr, delta) {
+  let result = [];
+  if (!Array.isArray(arr)) return null;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      result[i] = arr[i];
+    } else {
+      result[i] = arr[i] + delta;
+    }
+  }
+  return result;
+}
