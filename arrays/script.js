@@ -109,3 +109,14 @@ function reverseArray(arr) {
   }
   return result;
 }
+
+// function 11
+
+function cloneArr(arr) {
+  let clonedArr = [];
+  if (!Array.isArray(arr)) return null;
+  for (let i of arr) {
+    clonedArr.push(i);
+  }
+  return clonedArr;
+}
