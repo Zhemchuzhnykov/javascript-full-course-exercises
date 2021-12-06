@@ -141,3 +141,17 @@ function checker(arr) {
   }
   return (min + max) > 1000;
 }
+
+// function 13
+
+function sortAsc(array) {
+  if(!Array.isArray(array)) return null;
+  array.sort((a, b) => a - b);
+  return array;
+}
+
+function sortDesc(array) {
+  if(!Array.isArray(array)) return null;
+  array.sort((a, b) => b - a);
+  return array;
+}
