@@ -49,3 +49,11 @@ function swapManual(numbers) {
   result.push(first);
   return result;
 }
+
+// function 6
+
+function createEmptyArray(len) {
+  let result =[];
+  result.length = len;
+  return result;
+}
