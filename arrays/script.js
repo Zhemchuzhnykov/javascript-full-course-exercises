@@ -98,3 +98,14 @@ function increaseEvenEl(arr, delta) {
   }
   return result;
 }
+
+// function 10
+
+function reverseArray(arr) {
+  let result = [];
+  if (!Array.isArray(arr)) return null;
+  for (let i of arr) {
+    result.unshift(i);
+  }
+  return result;
+}
