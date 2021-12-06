@@ -155,3 +155,16 @@ function sortDesc(array) {
   array.sort((a, b) => b - a);
   return array;
 }
+
+// function 14
+
+function withdraw(clients, balances, client, amount) {
+  for (let i = 0; i < clients.length; i++) {
+    if (clients[i] === client && (balances[i] - amount) >= 0) {
+      balances[i] -= amount;
+      return balances[i];
+    } else if (clients[i] === client && (balances[i] - amount) < 0) {
+      return -1;
+    } else {}
+  }
+}
