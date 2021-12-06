@@ -120,3 +120,24 @@ function cloneArr(arr) {
   }
   return clonedArr;
 }
+
+// function 12
+
+function checker(arr) {
+  if (!Array.isArray(arr)) return null;
+  let min = arr[0];
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    for (let n = 1; n < arr.length; n++){
+      if (arr[i] <= min && arr[i] <= arr[n]) {
+        min = arr[i];
+      }
+    }
+    for (let n = 1; n < arr.length; n++){
+      if (arr[i] >= max && arr[i] >= arr[n]) {
+        max = arr[i];
+      }
+    }
+  }
+  return (min + max) > 1000;
+}
