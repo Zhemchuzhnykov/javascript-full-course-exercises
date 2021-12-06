@@ -187,3 +187,14 @@ const includes = (arr, num) => {
   };
   return false;
 };
+
+// function 17
+
+const removeDuplicates = (array) => {
+  let newArray = [];
+  if (!Array.isArray(array)) return null;
+  for (let i = 0; i < array.length; i++) {
+    if (!array.includes(array[i], i + 1)) newArray.push(array[i]);
+  }
+  return newArray;
+}
