@@ -11,3 +11,11 @@ const sortDesc = array => {
   const newArray = array.slice().sort((a,b) => b - a);
   return newArray;
 };
+
+// function 3. Build an arrow function => create a new variable to which we will assign the changed array =>
+// => apply the method flat() => apply the method sort() => deliver a right function to the method sort().
+
+const flatArray = arr => {
+  const flattenedArray = arr.flat().sort((a, b) => a - b);
+  return flattenedArray;
+};
