@@ -32,3 +32,11 @@ const getMessagesForBestStudents = (allStudentsList, studentsForRetake) => {
   })
   return successfulStudents;
 }
+
+// function 5. Build an arrow function => build a null return condition => apply map() to the received array
+// => in map(), building a function which makes every number in the received array squared =>
+// => returning a new array
+
+const squareArray = array => {
+  if (!Array.isArray(array) === true) return null;
+  return array.map(num => { return num **= 2;})}
