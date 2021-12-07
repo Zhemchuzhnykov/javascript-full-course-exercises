@@ -40,3 +40,13 @@ const getMessagesForBestStudents = (allStudentsList, studentsForRetake) => {
 const squareArray = array => {
   if (!Array.isArray(array) === true) return null;
   return array.map(num => { return num **= 2;})}
+
+// function 6. Build an arrow function with one argument for receiving an array => declaring a new array variable
+// build a null return inside the function =>
+// => build map() inside the function => build an arrow function in map() => build the code in the function =>
+// => adding every iterated value to the end of a new array with push() =. returning a new array
+
+const reverseArray = array => {
+  if (!Array.isArray(array) === true) return null;
+  return array.slice().reverse();
+}
