@@ -19,3 +19,16 @@ const flatArray = arr => {
   const flattenedArray = arr.flat().sort((a, b) => a - b);
   return flattenedArray;
 };
+
+// function 4. Build an arrow function with two agruments - all students and failed students =>
+// => create a new array variable
+// => apply the method map() to the array => in the method map(), run a code checking if a student we need is iterated =>
+// => if it is a student we need, concatenate it with the greeting and add to a new variable
+
+const getMessagesForBestStudents = (allStudentsList, studentsForRetake) => {
+  let successfulStudents =[];
+  allStudentsList.map(student => {
+    if (!studentsForRetake.includes(student)) successfulStudents.push('Good job, ' + student);
+  })
+  return successfulStudents;
+}
