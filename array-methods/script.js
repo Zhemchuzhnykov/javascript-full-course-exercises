@@ -2,3 +2,12 @@
 // building the code returning true for the desired elements at their iterations
 
 const getSpecialNumbers = array => array.filter(element => element % 3 === 0);
+
+// function 2: building an arrow function => copies a received array to a new variable with slice()
+// applying sort() to the copied array => specifying the parameters and b - a equation to make the function
+// run the comparison and sorting elements in a descending order
+
+const sortDesc = array => {
+  const newArray = array.slice().sort((a,b) => b - a);
+  return newArray;
+};
