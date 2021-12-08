@@ -63,3 +63,14 @@ const increaseEvenEl = (arr, delta) => {
   arr.map(element => {if (element % 2 === 0) result.push(element + delta);});
   return result;
 }
+
+// function 8. Build an arrow function with one argument for receiving an array =>
+// build a null return condition inside the function =>
+// with a spread operator, coping a receved array into a new array => returning a new array
+
+const cloneArr = arr => {
+  if (!Array.isArray(arr) === true) return null;
+  const [...result] = arr;
+  return result;
+}
+
