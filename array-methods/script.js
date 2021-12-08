@@ -106,3 +106,14 @@ const sum = arr => {
 // return a new array
 
 const filterNames = (arr, text) => arr.filter(element => element.includes(text) && element.length > 5);
+
+// function 12. Build an arrow function with one argument for receiving an array =>
+// build a no-array return condition inside the function => apply reduce() to a received array =>
+// inside the function, apply reduce() to a received array =>
+// build a function inside reduce () to accumulate the sum of all variables =>
+// divide the accumulated value on the length of the array => return the result of the division
+
+const arrAverage = arr => {
+  if (!Array.isArray(arr) === true) return null;
+  return (arr.reduce((accumulator, element) => accumulator + element)) / arr.length;
+}
