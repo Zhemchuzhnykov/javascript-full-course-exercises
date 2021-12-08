@@ -74,3 +74,19 @@ const cloneArr = arr => {
   return result;
 }
 
+// function 9. Build an arrow function with four arguments - array for clients, array for balances, client amount to withdraw from the client's balance => 
+// with indexOf find the index of a client =>
+// with the found index, find the balance and check if the balance is higher than amount to deduct =>
+// if the balance is lower, return -1, if the balance is higher, deduct the amount from the balance
+// return the balance after deduction
+
+const withdraw = (clients, balances, client, amount) => {
+  if (balances[clients.indexOf(client)] < amount) {
+    return -1;
+  } else {
+    balances[clients.indexOf(client)] -= amount;
+    return balances[clients.indexOf(client)];
+  }
+}
+
+//function 10. 
