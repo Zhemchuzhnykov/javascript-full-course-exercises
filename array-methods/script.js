@@ -50,3 +50,16 @@ const reverseArray = array => {
   if (!Array.isArray(array) === true) return null;
   return array.slice().reverse();
 }
+
+// function 7. Build an arrow function with two argumenets (one for an array, another one for a number) =>
+// builld a null return condition inside the function
+// apply the method map() to a received array => write a function inside map() => 
+// the function inside map() returns the sum of an iterated element and second argument =>
+// return a new array
+
+const increaseEvenEl = (arr, delta) => {
+  if (!Array.isArray(arr) === true) return null;
+  let result =[];
+  arr.map(element => {if (element % 2 === 0) result.push(element + delta);});
+  return result;
+}
