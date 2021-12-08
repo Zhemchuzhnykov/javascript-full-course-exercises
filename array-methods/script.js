@@ -89,4 +89,12 @@ const withdraw = (clients, balances, client, amount) => {
   }
 }
 
-//function 10. 
+//function 10. Build an arrow function with one argument for receiving an array =>
+// build a no-array return condition inside the function => apply reduce() to a received array =>
+// build a function inside reduce() with two arguments - accumulator and iterations
+// => the function accumulates all the values in the accumulator => return the accumulated value
+
+const sum = arr => {
+  if (!Array.isArray(arr) === true) return null;
+  return arr.reduce((acca, element) => acca + element);
+}
