@@ -57,3 +57,14 @@ user.address = {};
 user.address.country = 'Ukraine';
 user.address.building = 17;
 console.log(user);
+
+// function 5. To get keys of an object.
+// An arrow function with one argument for receiving an array =>
+// apply loop for... in to iterate all properties of a received array =>
+// type in the console every iterated variable receiving a key name
+
+function getKeys(obj) {
+  for (let key in obj) {
+    console.log(key);
+  }
+}
