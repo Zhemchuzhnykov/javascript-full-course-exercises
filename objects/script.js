@@ -68,3 +68,22 @@ function getKeys(obj) {
     console.log(key);
   }
 }
+
+// function 6. A function getting selected properties from an object.
+// An arrow function with two arguments for an object and a list of properties =>
+// create an empty object result where selected properties will be collected =>
+// build a loop for.. in for an object to iterate all the properties of an object =>
+// use if-operator with includes() applied to a list (array) to check if the list includes the iterated property =>
+// in if {} assign the iterated property to result => return result
+
+const pickProps = (obj, props) => {
+  const result = {};
+  let iteratedKey = '';
+  for (let key in obj) {
+    iteratedKey = key.toString();
+    if(props.includes(iteratedKey)) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+};
