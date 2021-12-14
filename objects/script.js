@@ -20,3 +20,40 @@ const concatProps = obj => {
   }
   return result;
 };
+
+// function 3. Receiving certain data from an object using different approaches.
+
+const transaction = {
+  currency: 'USD',
+  value: 170,
+  operation: 'sale',
+  agent: {
+    country: 'Ukraine',
+    company: 'NYSE',
+  },
+  'operation time': 1584029990001,
+};
+
+console.log(transaction.currency);
+console.log(transaction["value"]);
+const key = 'operation';
+console.log(transaction[key]);
+console.log(transaction.agent["company"]);
+console.log(transaction.agent.country);
+console.log(transaction["operation time"]);
+
+// function 4. Assigning properties to an object using different approaches.
+
+const user = {
+  name: 'Tom',
+  age: 17,
+};
+
+user.hobby = 'football';
+const anotherKey = 'married';
+user[anotherKey] = false;
+user['favorite music'] = 'rock';
+user.address = {};
+user.address.country = 'Ukraine';
+user.address.building = 17;
+console.log(user);
