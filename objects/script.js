@@ -87,3 +87,18 @@ const pickProps = (obj, props) => {
   }
   return result;
 };
+
+// function 7. Filtering object properties.
+// Build an arrow function receiving one argument for an object =>
+// declare a variable that will collect the required properties =>
+// build a for... in loop that will interate all the properties of a received object =>
+// check every iterated value whether it meets the requirement with if-statement =>
+// add the selected properties values to the variable
+
+const getAdults = obj => {
+  const result ={};
+  for (let key in obj) {
+    if(obj[key] >= 18) result[key] = obj[key];
+  }
+  return result;
+};
