@@ -116,10 +116,9 @@ function mergeObjectsV4(obj1, obj2) {
 }
 
 // function 11. Get names of residents from a complex object.
-// const result = [];
-// Object.values() to receive an array for each room = [[{},{},{}],[{{},{},{}}],[{},{},{}],[{},{},{}]] =>
-// forEach() to iterate each array = [{},{},{}] => function in forEach() => every iterated array as an arg
-// => Object.map() to iterated every {} and add its value to result value() + push()
+// Object.values() => [[{},{},{}],[{},{},{}]]
+// reduce() => [{},{},{},{},{},{}]
+// map() => result.push(arg.key)
 
 const rooms = {
   room1: [
@@ -132,12 +131,21 @@ const rooms = {
     { name: 'Alex' },
     { name: 'Lesia'}
   ],
+  room3: [
+    { name: 'Andrey' },
+    { name: 'Artem' },
+    { name: 'Max'}
+  ]
 }
 
 const empty = {};
 
+// const getPeople = obj => {
+//   const result = [];
+//   Object.values(obj).forEach(arr => {arr.map(resident => {result.push(Object.values(resident))})})
+//   return result.flat();
+// };
+
 const getPeople = obj => {
-  const result = [];
-  Object.values(obj).forEach(arr => {arr.map(resident => {result.push(Object.values(resident))})})
-  return result.flat();
-};
+  return Object.values(obj).reduce((aggregated, arr) => {return aggregated.concat(arr)}, []).map(person => {return person.name});
+}
