@@ -262,3 +262,50 @@ function compareObjects(obj1, obj2) {
   }
   return true;
 }
+
+// function 19. Getting a sorted array from an object.
+// Object.values() => [{},{},{}] => Object.keys() => ['','','',] => for => adding property
+
+const playersSuper = {
+  'player-id-1': {
+    name: 'David',
+    saving: 100,
+    outings: 90,
+    age: 28,
+  },
+  'player-id-19': {
+    name: 'Rashford',
+    speed: 99,
+    technique: 91,
+    age: 19,
+  },
+  'player-id-18': {
+    name: 'Bruno',
+    technique: 96,
+    pass: 98,
+    age: 25,
+  },
+  'player-id-7': {
+    name: 'Cristiano',
+    headers: 95,
+    technique: 91,
+    shots: 93,
+    age: 33,
+  },
+  'player-id-25': {
+    name: 'varane',
+    defense: 95,
+    pace: 93,
+    age: 27,
+  },
+}
+
+const getCustomersList = obj => {
+  const profilesCopies = [];
+  const profiles = Object.values(obj).map(person => { return profilesCopies.push( Object.assign({}, person) ) })
+  const personIDs = Object.keys(obj)
+  for (let index = 0; index < profiles.length ; index++) {
+    profilesCopies[index].id = personIDs[index];
+  }
+  return profilesCopies.sort( (a, b) => {  return a.age - b.age } );
+};
