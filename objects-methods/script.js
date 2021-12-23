@@ -149,3 +149,27 @@ const empty = {};
 const getPeople = obj => {
   return Object.values(obj).reduce((aggregated, arr) => {return aggregated.concat(arr)}, []).map(person => {return person.name});
 }
+
+// function 12. Calculating a total of transactions.
+// an arrow function with one argument for a receiced array =>
+// reduce() to iterate every object in an array and add amounts to an aggregate
+
+const salaries = [
+  { month: 'January', work: 'Support & Developer', amount: 1200, },
+  { month: 'February', work: 'Developer & Filmmaker', amount: 1400, },
+  { month: 'March', work: 'Developer & Filmmaker', amount: 1900, }
+];
+
+const getTotalRevenue = transactions => { 
+  return transactions.reduce( (total, transaction) => { return total += transaction.amount }, 0); }
+
+  // const testAmounts = [
+  //   1,
+  //   2,
+  //   7,
+  //   9,
+  // ]
+
+  // const reduceTest = amounts => {
+  //  return amounts.reduce ( (total, every) => { return total += every }, 1 );
+  // }
