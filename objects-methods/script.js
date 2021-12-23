@@ -163,13 +163,102 @@ const salaries = [
 const getTotalRevenue = transactions => { 
   return transactions.reduce( (total, transaction) => { return total += transaction.amount }, 0); }
 
-  // const testAmounts = [
-  //   1,
-  //   2,
-  //   7,
-  //   9,
-  // ]
+// function 13. Adding a property to an object with [] and changing a received object
 
-  // const reduceTest = amounts => {
-  //  return amounts.reduce ( (total, every) => { return total += every }, 1 );
-  // }
+const playersAgainstNewcastle = {right: 'Rashford', left: 'Sancho',}
+
+function addPropertyV1(obj, key, value) {
+  obj[key] = value;
+  return obj;
+}
+
+// function 14. Adding a property to an object with assign() and changing a received object
+
+const playersAgainstBurnley = {midfielder1: 'Fred', midfielder2: 'McTominey', midfielder3: 'Van de Beek',}
+
+function addPropertyV2(obj, key, value) {
+  Object.assign(obj, {[key]: value} )
+  return obj;
+}
+
+// function 15. Adding a property to an object with assign() and returning a new object
+
+const playersAgainstWolves = {left: 'Greenwood', right: 'Rashford', }
+
+function addPropertyV3(obj, key, value) {
+  return Object.assign({}, obj, {[key]: value} )
+}
+
+// function 16. Adding a property to an object with a spread operator and returning a new object
+
+const playersAgainstVilla = {left: 'Martial', right: 'Rashford', }
+
+function addPropertyV4(obj, key, value) {
+  const result = {
+    ... obj,
+    [key]: value,
+  }
+  return result;
+}
+
+// function 17. reduce => reduce function => assign
+
+const positions = ['goalkeeper', 'defender', 'midfielder', 'forward']
+const players = ['De Gea', 'Varane', 'Bruno', 'Ronaldo']
+
+// function buildObject(keysList, valuesList) {
+//   const result = {};
+//   for (let index = 0; index < keysList.length; index++ ) {
+//     Object.assign(result, {[keysList[index]]: valuesList[index]})
+//   }
+//   return result;
+// }
+
+function buildObject(keysList, valuesList) {
+  return keysList.reduce( (acca, iterated, index, valuesList) => { return Object.assign(acca, {[iterated]:valuesList}) } )
+}
+
+// function 18. Comparing primitive data inside objects
+// Object.keys(), Object.values() => iteration => comparison => return
+
+const rashford = {
+  nation: 'english',
+  age: 19,
+  level: 9,
+}
+
+const bruno = {
+  nation: 'portugal',
+  age: 25,
+  level: 10,
+}
+
+const fernandes = {
+  nationality: 'portugal',
+  age: 25,
+  level: 10,
+}
+
+const greenwood = {
+  nation: 'english',
+  age: 19,
+  level: 9,
+}
+
+const mason = {
+  nation: 'english',
+  age: 19,
+}
+
+function compareObjects(obj1, obj2) {
+  const obj1Entries = Object.keys(obj1).concat(Object.values(obj1));
+  const obj2Entries = Object.keys(obj2).concat(Object.values(obj2));
+  if (obj1Entries.length === obj2Entries.length) {
+    for (let index = 0; index < obj1Entries.length; index++) {
+      if (obj1Entries[index] !== obj2Entries[index]) return false;
+    }
+  } else {
+    return false;
+  }
+  return true;
+}
