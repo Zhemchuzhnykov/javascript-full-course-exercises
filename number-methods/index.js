@@ -111,3 +111,18 @@ const getMaxAbsoluteNumber = arr => {
     return Math.max( ... arr.map( element => { return Math.abs(element) } ));
   }
 };
+
+// function 12. returns a round sum of received numbers in the format "$16.50"
+// an arrow function with one argument to receive an array =>
+// reduce() => function in reduce() => returns a total number =>
+// Math.floor( num * 100 ) / 100 => returns this value
+
+const numbersSet8 = [10.43842, 20.4392, 90.43320];
+
+const getTotalPrice = arr => {
+  return '$' + (Math.floor((arr.reduce( (aggregated, element) => { return aggregated + element} )) * 100) / 100);
+}
+
+// function 12. returns an array of random numbers from a received range of numbers
+// an arrow function with three arguments - array length, range start, range end =>
+// 
