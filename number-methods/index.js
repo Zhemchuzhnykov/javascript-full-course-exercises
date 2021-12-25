@@ -123,6 +123,45 @@ const getTotalPrice = arr => {
   return '$' + (Math.floor((arr.reduce( (aggregated, element) => { return aggregated + element} )) * 100) / 100);
 }
 
-// function 12. returns an array of random numbers from a received range of numbers
+// function 13. returns an array of random numbers from a received range of numbers
 // an arrow function with three arguments - array length, range start, range end =>
-// 
+// function for getting an integer in a range => creating an empty array => array.length =>
+//   min = Math.ceil(min);
+//   max = Math.floor(max); => min === max return null; => return iteration with map => function in map()
+//   Math.floor(Math.random() * (max - min) + min);
+// }
+
+const getRandomNumbers = (length, from, to) => {
+  let result = [];
+  const min = Math.ceil(from);
+  const max = Math.floor(to);
+  if (min === (max + 1)) {
+    return null;
+  } else {
+    for (let index = 0; index < length; index ++) {
+      result.push(Math.floor(Math.random() * (max - min) + min));
+    }
+  };
+  return result;
+};
+
+// function 14. Rounding a float number to a certain float point.
+// an arrow function with two arguments for a float number and a threshold for a returned float num =>
+// return an array with 5 elements =>
+// each element is a calculation of a returned number with different methods =>
+// Math.floor() + calculation => Math.trunc() + calculation => Math.ceil() + calculation =>
+// Math.round() + calculation => Math.toFixed()
+
+const superRound = (num, prec) => {
+  let multiplyingNum = 1;
+  for (let index = 0; index < prec; index ++) {
+    multiplyingNum += '0';
+  }
+  return [
+    Math.floor( num * multiplyingNum ) / multiplyingNum,
+    Math.trunc( num * multiplyingNum ) / multiplyingNum,
+    Math.ceil( num * multiplyingNum ) / multiplyingNum,
+    Math.round( num * multiplyingNum ) / multiplyingNum,
+    +num.toFixed(prec)
+  ];
+};
