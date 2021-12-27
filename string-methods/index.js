@@ -4,6 +4,8 @@
 // build a while-loop in which an array will be filled => build an instruction for capitalizing 1st letter
 // => build a condition of breaking a loop => return an array joined with \n instruction
 
+// const { rules } = require("eslint-config-airbnb-base");
+
 const hotLine = 'dkjsdweijdksfjskejkdsjfkdjfiwefsdfffwew';
 
 const splitText = (string, lineLength) => {
@@ -87,14 +89,108 @@ const contactList = [
 //   }
 // }
 
-const sortContacts = (contacts, isAsc) => {
-  if (Array.isArray(contacts) && isAsc !== false) {
-    return contacts.sort( (a,b) => {
-        return a.name[0].localeCompare(b.name[0]);
-      })} else if (Array.isArray(contacts) && isAsc === false) {
-        return contacts.sort( (a, b) => {
-        return b.name[0].localeCompare(a.name[0]);
-      })} else {
+// const sortContacts = (contacts, isAsc) => {
+//   if (Array.isArray(contacts) && isAsc !== false) {
+//     return contacts.sort( (a,b) => {
+//         return a.name[0].localeCompare(b.name[0]);
+//       })} else if (Array.isArray(contacts) && isAsc === false) {
+//         return contacts.sort( (a, b) => {
+//         return b.name[0].localeCompare(a.name[0]);
+//       })} else {
+//     return null;
+//   }
+// }
+
+// const sortContacts = (contacts, isAsc) => {
+//   if (Array.isArray(contacts) && isAsc !== false) {
+//     return contacts.sort( (a,b) => a.name[0].localeCompare(b.name[0]));
+//   } else if (Array.isArray(contacts) && isAsc === false) {
+//         return contacts.sort( (a, b) => b.name[0].localeCompare(a.name[0]));
+//       } else {
+//     return null;
+//   }
+// }
+
+// const sortContacts = (contacts, isAsc) => {
+//   if (!Array.isArray(contacts)) {
+//       return null;
+//     } else if (isAsc === false) {
+//       return contacts.sort( (a, b) => b.name[0].localeCompare(a.name[0]));
+//   } else {}
+//     return contacts.sort((a, b) => a.name[0].localeCompare(b.name[0]));
+// }
+
+// const sortContacts = (contacts, isAsc) => {
+//   if (!Array.isArray(contacts)) {
+//       return null;
+//     } else if (isAsc === false) {
+//       return contacts.sort( (a, b) => b.name[0].localeCompare(a.name[0]));
+//   } else {
+//     return contacts.sort((a, b) => a.name[0].localeCompare(b.name[0]));
+//   }
+// }
+
+const sortContacts = (contacts, isAsk) => {
+let result = [];
+  if (!Array.isArray(contacts)) {
     return null;
+  } else if (isAsk === false) {
+    result = contacts
+      .sort((a, b) => {
+        return b.name.localeCompare(a.name);
+      });
+  } else {
+    result = contacts
+      .sort((a, b) => {
+        return a.name.localeCompare(b.name);
+  });
+  }
+  return result;
+}
+
+// function 3. Splits a string into parts and returns an array of these parts of a certain length
+
+const hotLine2 = 'buenosanchoamigocarabaocancaogansaloganseloritas!hiyya!!!marakuyakuyakuya';
+
+const splitString = (string, lineLength) => {
+  if (lineLength === undefined) lineLength = 10;
+  let strLines = [];
+  let index = 0;
+  let lastArrEl = '';
+
+  if (typeof string === 'string') {
+
+    while (index <= string.length) {
+      strLines.push(string.substring(index, index + lineLength));
+      index += lineLength;
+    }
+
+    lastArrEl = strLines[strLines.length - 1];
+    for (let index = lastArrEl.length; index < lineLength; index++) {
+      strLines[strLines.length - 1] += ".";
+    }
+
+  } else {
+    return null;
+  }
+
+  return strLines;
+}
+
+// function 4. Finds a number of occurences of a string inside a longer string
+// an arrow function with two arguments: 1st for a big string, 2nd for a string to find
+// a variable for an array => method match() => returns array length
+
+const massiveString = 'Manchester is the place of manhood where a real man Mr. Man makes his real man bussiness';
+const searchedString = 'man';
+const empty = '';
+
+const countOccurrences = (text, str) => {
+  if (text === undefined) text = '';
+  if (str.length === 0) {
+    return null;
+  } else {
+    const searched = new RegExp(str, 'g');
+    return text.match(searched).length;
   }
 }
