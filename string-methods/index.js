@@ -194,3 +194,73 @@ const countOccurrences = (text, str) => {
     return text.match(searched).length;
   }
 }
+
+// function 5. calculator
+// an arrow function which receives a mathematical expression as a string =>
+// use eval function to generate the return from a math operation in a string
+
+const hotCalc = "2 - 5";
+
+// const calc = string => eval(string);
+
+const calc = expression => {
+
+  const [leftOperand, operator, rightOperand] = expression.split(' ');
+  let result;
+
+  switch (operator) {
+    case "+": 
+      result = +leftOperand + +rightOperand;
+      break;
+    case "-": 
+      result = leftOperand - rightOperand;
+      break;
+    case "*": 
+      result = leftOperand * rightOperand;
+      break;
+    case "/":
+      result = leftOperand / rightOperand;
+  }
+
+  return `${expression} = ${result}`;
+}
+
+// function 6. Returning a string in a reverse order
+// an arrow function with an argument for a string => validation =>
+// string to an array => reduce() => unshift
+
+// const reverseString = string => {
+
+//   if (typeof string !== "string") return null;
+
+//   return string.split('').reduce( (accumulator, symbol) => symbol + accumulator );
+
+// }
+
+const reverseString = string => {
+
+  if (typeof string !== "string") return null;
+
+  return string.split('').reverse().join('');
+
+}
+
+// function 7. Returning an array of formatted data.
+// an arrow function receving an array of strings as the only argument =>
+// filter() to exclude elements and edit included elements => return filer()
+
+const hotTranasctions = ['vitya', '12.3232', 'Vicka', '1', ' 73 329.38', ' 18.302 '];
+
+// const cleanTransactionsList = transactions => {
+
+//   return transactions.filter( transaction => transaction.search(/[A-Za-z]/) === -1)
+//     .map( transaction => '$' + parseFloat(transaction).toFixed(2));
+
+// }
+
+const cleanTransactionsList = transactions => {
+
+  return transactions.filter( transaction => !isNaN(transaction))
+    .map( transaction => '$' + parseFloat(transaction).toFixed(2));
+
+}
