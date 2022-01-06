@@ -1,19 +1,40 @@
-import { sendMessage, setMessage, testFunction } from './index.js';
+import { it } from 'eslint/lib/rule-tester/rule-tester';
+import { sendText, setText, testFunction, createMessenger } from './index.js';
 
 it('should return a certain message with a name passed as an argument', () => {
   const person = 'Kseniya';
 
-  expect(sendMessage(person)).toEqual('Kseniya, Just learn it! Your Gromcode');
+  expect(sendText(person)).toEqual('Kseniya, Just learn it! Your Gromcode');
 });
 
-it ('should change a message in the function sendMessage', () => {
+it('should change a message in the function sendMessage', () => {
   const newMessage = 'just leave it';
-  setMessage(newMessage);
+  setText(newMessage);
 
-  expect(sendMessage('Kseniya')).not.toEqual('Kseniya, Just learn it! Your Gromcode');
+  expect(sendText('Kseniya')).not.toEqual('Kseniya, Just learn it! Your Gromcode');
 })
 
-it('should return 7', () => {
+// messenger's methods tests
 
-  expect(testFunction(2,5)).toEqual(7);
+it('should return a message \'Bob, Just learn it! Your Gromcode\'', () => {
+  const testName = 'Bob';
+  const testMessenger = createMessenger();
+
+  expect(testMessenger.sendMessage(testName)).toEqual('Bob, Just learn it! Your Gromcode');
+});
+
+it('should change a message from \'Just learn it\' to \'Just leave it\'', () => {
+  const testMessenger = createMessenger();
+  const testMessage = 'Just leave it';
+
+  testMessenger.setMessage(testMessage);
+  expect(testMessenger.sendMessage('Bob')).toEqual('Bob, Just leave it! Your Gromcode');
+});
+
+it('should change a sender from \'Gromcode\' to \'Master Splinter\'', () => {
+  const testMessenger = createMessenger();
+  const testSender = 'Master Splinter';
+
+  testMessenger.setSender(testSender);
+  expect(testMessenger.sendMessage('Bob')).toEqual('Bob, Just learn it! Your Master Splinter');
 })
