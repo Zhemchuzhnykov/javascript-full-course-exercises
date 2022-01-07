@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { sendText, setText, testFunction, createMessenger } from './index.js';
+import { sendText, setText, testFunction, createMessenger, add, decrease, reset, getMemo } from './index.js';
 
 it('should return a certain message with a name passed as an argument', () => {
   const person = 'Kseniya';
@@ -37,4 +37,25 @@ it('should change a sender from \'Gromcode\' to \'Master Splinter\'', () => {
 
   testMessenger.setSender(testSender);
   expect(testMessenger.sendMessage('Bob')).toEqual('Bob, Just learn it! Your Master Splinter');
+})
+
+// calculator functions tests
+
+it('should assign a value of the variable number as 10', () => {
+
+  add(10);
+  expect(getMemo()).toEqual(10);
+})
+
+it('should assign a value of the variable number as -10', () => {
+  
+  decrease(10);
+  expect(getMemo()).toEqual(-10);
+})
+
+it('should return the value of the variable number as 0', () => {
+  
+  add(19);
+  reset();
+  expect(getMemo()).toEqual(0);
 })

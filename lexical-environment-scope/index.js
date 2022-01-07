@@ -34,3 +34,21 @@ export const createMessenger = () => {
 
 const messenger1 = createMessenger();
 const messenger2 = createMessenger();
+
+// calculator functions
+
+let number = 0;
+
+export const add = num => {
+  number += num;
+}
+
+export const decrease = num => {
+  number -= num;
+}
+
+export const reset = () => {
+  number = 0;
+}
+
+export const getMemo = () => number;
