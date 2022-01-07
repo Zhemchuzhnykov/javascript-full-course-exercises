@@ -1,4 +1,3 @@
-import { it } from 'eslint/lib/rule-tester/rule-tester';
 import { sendText, setText, testFunction, createMessenger, add, decrease, reset, getMemo } from './index.js';
 
 it('should return a certain message with a name passed as an argument', () => {
@@ -49,8 +48,8 @@ it('should assign a value of the variable number as 10', () => {
 
 it('should assign a value of the variable number as -10', () => {
   
-  decrease(10);
-  expect(getMemo()).toEqual(-10);
+  decrease(9);
+  expect(getMemo()).toEqual(1);
 })
 
 it('should return the value of the variable number as 0', () => {
