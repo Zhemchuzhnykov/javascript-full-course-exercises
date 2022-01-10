@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { arr, createArrayOfFunctions } from './index';
+import foo, { arr, createArrayOfFunctions } from './index';
 
 it('should return an index of a function called', () => {
   
@@ -28,3 +28,9 @@ it('should return an index of a function which is called', () => {
 
   expect(testArray[9]()).toEqual(9);
 });
+
+// test for a variable pazzle
+
+it('should return 1', () => {
+  expect(foo).toEqual(1);
+})
