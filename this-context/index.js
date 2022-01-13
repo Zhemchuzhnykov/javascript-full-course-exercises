@@ -41,5 +41,17 @@ const deferredPointsDisplay = defer(playerPerformance.points, 1000);
 
 deferredPointsDisplay.call( { goals: 18, assists: 19}, 7 );
 
-// making a context for different functions with the method call()
+// an object user that has a method returning a full name of a user and a method that can set a new full name
 
+export const userProfile = {
+  firstName: 'John',
+  lastName: 'Doe',
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  setFullName(fullName) {
+    const personName = fullName.split(' ');
+    this.firstName = personName[0];
+    this.lastName = personName[1];
+  },
+};

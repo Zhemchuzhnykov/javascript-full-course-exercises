@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { user, defer } from './index';
+import { user, defer, userProfile } from './index';
 
 // test for the object returning a full name of a user
 
@@ -31,3 +31,18 @@ it('should log 75 into console', done => {
 
 });
 
+// tests for the getter and setter methods of the object userProfile
+
+it('should return the string "John Doe"', () => {
+
+  expect(userProfile.getFullName()).toEqual('John Doe');
+
+});
+
+it('should return the string "Adam Adamantiy"', () => {
+
+  userProfile.setFullName('Adam Adamantiy');
+
+  expect(userProfile.getFullName()).toEqual('Adam Adamantiy');
+
+});
