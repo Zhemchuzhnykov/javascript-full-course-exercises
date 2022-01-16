@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { user, defer, userProfile } from './index';
+import { user, defer, userProfile, salaryGenerator } from './index';
 
 // test for the object returning a full name of a user
 
@@ -44,5 +44,13 @@ it('should return the string "Adam Adamantiy"', () => {
   userProfile.setFullName('Adam Adamantiy');
 
   expect(userProfile.getFullName()).toEqual('Adam Adamantiy');
+
+});
+
+// tests for the function emulating the work of the method bind() without apllying the method bind()
+
+it('should return 51439', () => {
+
+  expect(salaryGenerator('midfielder', 7)).toEqual(51439);
 
 });
