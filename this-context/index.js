@@ -166,3 +166,6 @@ function bind(func, context) {
 export const salaryGenerator = bind(playerProfile.salary, playerProfile2);
 
 console.log(salaryGenerator('forward', 9));
+
+// creating the functions based on the function calculator with the method bind()
+
