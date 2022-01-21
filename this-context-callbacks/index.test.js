@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { event, wallet, sumOfSquares } from './index';
+import { event, wallet, sumOfSquares, saveCalls } from './index';
 
 // test for a method returning a list of people who can get an invitation to a party
 
@@ -41,4 +41,45 @@ it('should return 29', () => {
 
   expect(sumOfSquares(2, 3, 4)).toEqual(29);
   
+});
+
+// tests for the function saveCalls()
+
+it('should return 14', () => {
+
+  const tested = (num1, num2) => num1 + num2;
+
+  const tester = saveCalls(tested);
+
+  expect(tester(7,7)).toEqual(14);
+
+});
+
+it('should return [["Adam", "Adamantiy"],["Cripton", "Criptoniy"]]', () => {
+
+  const tested = (firstName, secondName) => `${firstName} ${secondName}`;
+
+  const tester = saveCalls(tested);
+
+  tester('Adam', 'Adamantiy');
+  tester('Cripton', 'Criptoniy');
+
+  expect(tester.calls).toEqual([["Adam", "Adamantiy"], ["Cripton", "Criptoniy"]]);
+
+});
+
+it('should return "Cripton Criptonitskiy" as a result of applying a context', () => {
+
+  const tested = {
+    name: 'Adam',
+    surname: 'Adamantiy',
+    fullName() {
+      return `${this.name} ${this.surname}`;
+    }
+  };
+
+  const tester = saveCalls(tested.fullName);
+
+  expect(tester.apply( { name: 'Cripton', surname: 'Criptonitskiy', })).toEqual('Cripton Criptonitskiy');
+
 });
