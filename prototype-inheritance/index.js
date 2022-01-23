@@ -19,3 +19,7 @@ export const ship = {
   },
   __proto__: vehicle,
 };
+
+// function that returns an array of the own properties of a passed object
+
+export const getOwnProps = (obj) =>  Object.getOwnPropertyNames(obj).filter(key => typeof obj[key] !== 'function');
