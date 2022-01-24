@@ -48,3 +48,16 @@ export function User(name, age) {
     }
   }
 };
+
+// the object of a user with getter and setter methods
+
+export default {
+  firstName: 'John',
+  lastName: 'Dow',
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  set fullName(name) {
+    [ this.firstName, this.lastName ] = name.split(' ');
+  }
+};

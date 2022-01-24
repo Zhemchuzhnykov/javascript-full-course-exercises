@@ -1,6 +1,6 @@
 import noUnusedModules from 'eslint-plugin-import/lib/rules/no-unused-modules';
 import { it } from 'eslint/lib/rule-tester/rule-tester'
-import { vehicle, ship, getOwnProps, User } from './index'
+import person, { vehicle, ship, getOwnProps, User } from './index'
 
 // tests for the objects vehicle and ship
 
@@ -80,5 +80,21 @@ it('should return true', () => {
   expect(testedUser1.sayHi === testedUser2.sayHi).toEqual(true);
   expect(testedUser1.requestNewPhoto === testedUser2.requestNewPhoto).toEqual(true);
   expect(testedUser1.setAge === testedUser2.setAge).not.toEqual(false);
+
+});
+
+// tests for the getter and setter methods of the object person
+
+it('should return "John Dow"', () => {
+
+  expect(person.fullName).toEqual('John Dow');
+
+});
+
+it('should return "Adam Adamantiy"', () => {
+
+  person.fullName = 'Adam Adamantiy';
+
+  expect(person.fullName).toEqual('Adam Adamantiy');
 
 });
