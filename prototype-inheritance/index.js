@@ -23,3 +23,28 @@ export const ship = {
 // function that returns an array of the own properties of a passed object
 
 export const getOwnProps = (obj) =>  Object.getOwnPropertyNames(obj).filter(key => typeof obj[key] !== 'function');
+
+// function-constructor creating users with certain properties/methods
+
+export function User(name, age) {
+  this.name = name;
+  this.age = age;
+  User.prototype.sayHi = function() {
+    console.log(`Hi, I am ${this.name}`);
+  };
+  User.prototype.requestNewPhoto = function() {
+    console.log(`New photo request was sent for ${this.name}`);
+  };
+  User.prototype.setAge = function(age) {
+    if (age < 0) {
+      return false;
+  } else if (age >= 25) {
+      console.log(`New photo request was sent for ${this.name}`);
+      this.age = age;
+      return age;
+  } else {
+      this.age = age;
+      return age;
+    }
+  }
+};
