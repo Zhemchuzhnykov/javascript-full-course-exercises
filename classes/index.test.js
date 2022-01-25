@@ -1,5 +1,5 @@
 import { it } from 'eslint/lib/rule-tester/rule-tester';
-import { User } from './index';
+import { User, Vehicle, Ship } from './index';
 
 // tests for the class creating a user's profile
 
@@ -57,5 +57,66 @@ it('should log into the console "New photo request was sent for Adam"', () => {
   testedUser1.setAge(25);
 
   expect(consoleSpy).toHaveBeenCalledWith('New photo request was sent for Adam');
+
+});
+
+// tests for the classes Vehicle and Ship
+
+const drandulet = new Vehicle('drandulet', 3);
+const victoria = new Ship('Victoria', 0, '90 kmh');
+
+// return tests
+
+it('should return "drandulet" and 3', () => {
+
+  expect(drandulet.name).toEqual('drandulet');
+  expect(drandulet.numberOfWheels).toEqual(3);
+
+});
+
+it('should return "Victoria", 0, and "90 kmh"', () => {
+
+  expect(victoria.name).toEqual('Victoria');
+  expect(victoria.numberOfWheels).toEqual(0);
+  expect(victoria.maxSpeed).toEqual('90 kmh');
+  
+});
+
+// console tests
+
+it('should log into the console "Drandulet is moving" and 3', () => {
+
+  drandulet.move();
+
+  expect(consoleSpy).toHaveBeenCalledWith('drandulet is moving');
+
+});
+
+it('should log into the console "Drandulet stopped"', () => {
+
+  drandulet.stop();
+
+  expect(consoleSpy).toHaveBeenCalledWith('drandulet stopped');
+
+});
+
+it('should show that two console logs have taken place', () => {
+
+  global.console.log = jest.fn()
+
+  victoria.move();
+
+  expect(console.log).toBeCalledTimes(2);
+
+});
+
+it('should log into the console "Victoria lifting anchor up" and "Victoria is moving"', () => {
+
+  console.log = jest.fn();
+
+  victoria.move();
+
+  expect(console.log.mock.calls[0][0]).toBe('Victoria lifting anchor up');
+  expect(console.log.mock.calls[1][0]).toBe('Victoria is moving');
 
 });
